@@ -13,84 +13,12 @@
         </div>
       </div>
     </div>
-    <div id="loading" class="container">
+    <div class="container">
       <div class="columns">
-        <div class="one-half centered column">
-          <h3>Loading...</h3>
+        <div class="one-half centered column" style="padding: 20px">
+          <p>Go to http://keepthestreakalive.hiphipjorge.com/YOUR_GITHUB_USERNAME to see your current streak and longest streak in the last year.</p>
         </div>
       </div>
     </div>
-    <div id="user-info" class="container">
-      <div class="column one-fourth vcard">
-        <img alt="" class="avatar rounded-2" height="230" src="" id="user-photo-image" width="230">
-        <h1 class="vcard-names my-3">
-          <div class="vcard-fullname" id="user-name"></div>
-          <div class="vcard-username" id="user-username"></div>
-        </h1>
-      </div>
-      <div class="one-third column">
-        <div class="boxed-group">
-          <h3>Current Streak</h3>
-          <div class="content-box">
-            <h2 id="current-streak" class="streak"></h2>
-            <p class="centered">Days</p>
-          </div>
-          <div class="content-box date-box" id="current-streak-dates">
-            <p class="centered">From <span id="current-start"></span> to <span id="current-end"></span></p>
-          </div>
-        </div>
-      </div>
-      <div class="one-third column">
-        <div class="boxed-group">
-          <h3>Longest Streak</h3>
-          <div class="content-box">
-            <h2 id="longest-streak" class="streak"></h2>
-            <p class="centered">Days</p>
-          </div>
-          <div class="content-box date-box" id="longest-streak-dates">
-            <p class="centered">From <span id="longest-start"></span> to <span id="longest-end"></span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="user-not-found" class="blankslate container">
-      <h3>User Not Found</h3>
-      <p>The user you requested was not found in Github.</p>
-    </div>
-    <script>
-    (function () {
-      var username = window.location.pathname.replace('/', '');
-      $.get("https://api.github.com/users/" + username)
-        .then(function (data) {
-          $('#loading').hide()
-          $('#user-photo-image').attr('src', data.avatar_url)
-          $('#user-name').text(data.name)
-          $('#user-username').text(data.login)
-          $('#user-info').show()
-          return $.get( "github-user/" + username)
-        })
-        .then(function (data) {
-          console.log('data!!!', data)
-          $('#current-streak').text(data.currentStreakCount)
-          $('#current-start').text(data.currentStreakDates[0])
-          $('#current-end').text(data.currentStreakDates.pop())
-          $('#longest-streak').text(data.longestStreakCount)
-          $('#longest-start').text(data.longestStreakDates[0])
-          $('#longest-end').text(data.longestStreakDates.pop())
-          $('.content-box').show()
-          if (data.currentStreakCount === 0) {
-            $('#current-streak-dates').hide()
-          }
-          if (data.longestStreakCount === 0) {
-            $('#longest-streak-dates').hide()
-          }
-        })
-        .fail(function (err) {
-          $('#user-not-found').show()
-          $('#loading').hide()
-          console.log(err)
-        })
-    })()
-    </script>
   </body>
 </html>

@@ -137,7 +137,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/github-user/{username:[a-zA-Z0-9]+}", UsernameHandler)
 	r.HandleFunc("/{username:[a-zA-Z0-9]+}", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "public/index.html")
+		http.ServeFile(w, r, "public/user.html")
 	})
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 	http.Handle("/", r)
