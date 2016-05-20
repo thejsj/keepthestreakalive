@@ -1,0 +1,11 @@
+{
+  "name": "keepthestreakalive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"build": "./node_modules/node-sass/bin/node-sass public/scss/main.scss public/dist/main.css"
+  },
+  "author": "",
+  "license": "ISC"
+}

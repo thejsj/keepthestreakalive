@@ -1,0 +1,5 @@
+node_modules
+main
+public/bower_components
+publid/dist
+publid/scss/.sass-cache

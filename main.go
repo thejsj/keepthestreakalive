@@ -135,8 +135,11 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fmt.Printf("Start Server")
 	r := mux.NewRouter()
-	r.HandleFunc("/{username:[a-zA-Z0-9]+}", UsernameHandler)
-	r.HandleFunc("/", HomeHandler)
+	r.HandleFunc("/github-user/{username:[a-zA-Z0-9]+}", UsernameHandler)
+	r.HandleFunc("/{username:[a-zA-Z0-9]+}", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "public/index.html")
+	})
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 	http.Handle("/", r)
 	http.ListenAndServe(":9898", nil)
 }

@@ -1,0 +1,65 @@
+// Example: All of Primer
+@import "../bower_components/primer-css/scss/primer";
+
+// Example: Individual files
+@import "../bower_components/primer-css/scss/variables";
+@import "../bower_components/primer-css/scss/mixins";
+@import "../bower_components/primer-css/scss/base";
+
+h1 {
+	padding: 15px 0;
+}
+
+.container {
+	max-width: 980px;
+	margin: auto;
+}
+
+#user-info {
+	display: none;
+}
+
+#user-not-found {
+	display: none;
+}
+
+.user-photo-container {
+	.user-photo-image {
+		background: $gray;
+	}
+}
+.boxed-group>h3 {
+	display: block;
+	padding: 9px 10px 10px;
+	margin: 0;
+	font-size: 14px;
+	line-height: 17px;
+	background-color: #f5f5f5;
+	border: 1px solid #d8d8d8;
+	border-radius: 3px 3px 0 0;
+}
+
+.content-box {
+	display: none;
+	border-radius: 0;
+	border: solid 1px #d8d8d8;
+	border-top-width: 0px;
+	p {
+		text-align: center;
+		padding: 5px;
+	}
+}
+
+.date-box {
+	span {
+		font-weight: bold;
+	}
+}
+
+.streak {
+	text-align: center;
+	font-size: 7em;
+	line-height: 1.4em;
+}
+
+
