@@ -3,3 +3,5 @@ main
 public/bower_components
 publid/dist
 publid/scss/.sass-cache
+public/dist/
+	public/scss/.sass-cache/
